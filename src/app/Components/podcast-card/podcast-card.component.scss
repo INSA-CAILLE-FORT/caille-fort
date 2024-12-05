@@ -1,0 +1,22 @@
+.podcast-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.podcast-card img {
+  width: 100%;
+  height: auto;
+}
+
+.podcast-info {
+  padding: 10px;
+}
+
+.podcast-info h2 {
+  margin: 10px 0;
+}

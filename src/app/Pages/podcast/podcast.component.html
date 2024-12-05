@@ -1,1 +1,25 @@
-<p>podcast works!</p>
+<app-header></app-header>
+<div class="podcast-container">
+
+  <div class="top">
+
+    <div class="content-podcast">
+      <div class="title-podcast">
+        <h1>Nos Podcasts</h1>
+      </div>
+      <div class="description">
+        <p style="margin-bottom: 40px">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla ut lorem sit amet eleifend. Nunc lacus erat ullamcorper auctor. Nullam et condimentum nunc. Curabitur ultricies looret sodales.
+        </p>
+      </div>
+      <div class="podcast-cards">
+        <app-podcast-card *ngFor="let podcast of podcasts" [podcast]="podcast"></app-podcast-card>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <button class="play-button">
+      <img src="path/to/play-icon.png" alt="Play Icon">
+    </button>
+  </div>
+</div>
