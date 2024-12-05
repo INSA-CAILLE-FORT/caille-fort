@@ -1,0 +1,15 @@
+.tile-container {
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    height: 100vh; /* Toute la hauteur de la page */
+  }
+  
+  .tile-container app-tile {
+    width: 80%; /* La tuile occupe 80% de la largeur */
+    height: 90%; /* La tuile occupe 90% de la hauteur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optionnel : Ajout d'un effet d'ombre */
+    border-radius: 8px; /* Optionnel : Ajout de coins arrondis */
+    background-color: #f9f9f9; /* Optionnel : Couleur de fond */
+  }
+  

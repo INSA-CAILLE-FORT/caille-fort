@@ -1,1 +1,45 @@
-<p>tile works!</p>
+<!-- <p-card [style]="{width: '30rem', margin: '0 auto'}" [header]="title">
+    <p>{{ subtitle }}</p>
+    <p>{{ questionText }}</p>
+    <p-button label="VRAI" (onClick)="answer('VRAI')" styleClass="p-button-success"></p-button>
+    <p-button label="FAUX" (onClick)="answer('FAUX')" styleClass="p-button-danger"></p-button>
+    <p-progressBar [value]="progress"></p-progressBar>
+  </p-card>
+   -->
+  
+   <p-card class="p-mb-3 p-shadow-3">
+    <div class="tile-header">
+      <h2>{{ tile.title }}</h2>
+      <h4 class="subtitle">{{ tile.subtitle }}</h4>
+    </div>
+  
+    <p class="description">{{ tile.description }}</p>
+  
+    <div class="benefit-dysfunction">
+      <p><strong>Bénéfice : </strong>{{ tile.benefit }}</p>
+      <p><strong>Dysfonctionnement : </strong>{{ tile.dysfunctionment }}</p>
+    </div>
+  
+    <div class="progress-container p-mb-2">
+      <label for="progress">Score :</label>
+      <p-progressBar id="progress" [value]="tile.score"></p-progressBar>
+    </div>
+  
+    <div class="actions">
+      <button
+        pButton
+        label="Augmenter le score"
+        icon="pi pi-plus"
+        class="p-button-success"
+        (click)="updateScore(tile.score + 1)"
+      ></button>
+      <button
+        pButton
+        label="Diminuer le score"
+        icon="pi pi-minus"
+        class="p-button-danger"
+        (click)="updateScore(tile.score - 1)"
+      ></button>
+    </div>
+  </p-card>
+  
