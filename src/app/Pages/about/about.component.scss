@@ -5,13 +5,14 @@
 }
 
 .top {
-  flex: 3;
+  flex: 4;
   background-color: var(--blue);
 }
 
 .title-about {
   text-align: center;
-  margin-top: 120px
+  margin-top: 120px;
+  color: var(--bg-secondary);
 }
 
 .bottom {

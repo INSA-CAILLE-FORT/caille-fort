@@ -1,8 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 body{
   margin: 0;
+  background: var(--bg);
 }
 
 :root{
-  --blue: #6d9ea0;
+  --blue: #162752;
+  --light-blue: #62B1E3;
+  --dark-blue: #080E1F;
+  --bg: #EBEEFF;
+  --bg-secondary: #F1F1E6;
+  --red: #4F141D;
+  --red-secondary: #844348;
+  --green: #007D58;
+  --light-green: #00B38A;
+  --yellow: #FFB55E;
+  --dark-yellow: #816C3C;
 }

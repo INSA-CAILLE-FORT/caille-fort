@@ -12,6 +12,8 @@ $padding: 1rem; // Espacement global
   background-color: var(--blue);
   padding: $padding;
   position: relative; // Nécessaire pour centrer le menu
+  border-radius: 12px;
+  margin: 1rem;
 
   // Logo
   .menu-logo {
@@ -36,7 +38,7 @@ $padding: 1rem; // Espacement global
 
     .nav-item {
       text-decoration: none;
-      color: $primary-color;
+      color: var(--bg-secondary);
       font-size: 1rem;
       transition: color 0.3s ease;
 
