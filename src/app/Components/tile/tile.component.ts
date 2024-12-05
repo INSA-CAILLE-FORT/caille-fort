@@ -23,6 +23,7 @@ import { Tile } from '../../models/Tile.model';
 
 @Component({
   selector: 'app-tile',
+  standalone: true,
   templateUrl: './tile.component.html',
   styleUrls: ['./tile.component.scss']
 })

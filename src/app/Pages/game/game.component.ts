@@ -1,27 +1,36 @@
 import { Component } from '@angular/core';
 import { TileService } from '../../Services/Tile.service';
+import { TileComponent } from '../../Components/tile/tile.component';
+import {NgForOf} from '@angular/common';
+import {Tile} from '../../Models/Tile.model';
+import {Question} from '../../Models/Question.model';
 
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [],
+  imports: [
+    TileComponent,
+    NgForOf,
+  ],
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss']
 })
 export class GameComponent {
-  tileService = new TileService();
-  tile_organ = this.tileService.getTile();
-  tile_ocean = this.tileService.getTile();
+  tile!: Tile;
 
+  constructor(private tileService: TileService) {}
 
-  tiles = [
-    this.tile_organ,
-    this.tile_ocean
-  ];
+  ngOnInit(): void {
+    this.tileService.getTile().subscribe((data) => {
+      this.tile = data;
+    });
+  }
 
-  // handleAnswer(response: string, tile: any) {
-  //   console.log(`User answered: ${response} for tile: ${tile.title}`);
-  //   // Ajoutez ici la logique pour gérer la réponse de l'utilisateur
-  // }
+  updateTile(): void {
+    const newQuestion = new Question(1, 'What is the capital of France?', 'open', ['Paris', 'London', 'Berlin', 'Madrid']);
+    this.tileService.updateTile(this.tile, 5, newQuestion).subscribe((updatedTile) => {
+      this.tile = updatedTile;
+    });
+  }
 }
