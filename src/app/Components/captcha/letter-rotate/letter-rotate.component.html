@@ -1,0 +1,1 @@
+<img src="{{ this.urlToAsset }}" (click)="rotateImage()" [style.transform]="'rotate(' + this.rotationAngle + 'deg)'" [style.transition]="this.isTransitionEnabled ? 'transform 0.5s ease' : 'none'" style="cursor: pointer;"/>
