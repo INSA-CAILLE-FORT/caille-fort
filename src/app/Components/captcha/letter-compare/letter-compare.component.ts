@@ -15,6 +15,7 @@ export class LetterCompareComponent {
 
   ngOnInit() {
     this.type = this.getRandomInt(1, 3);
+    this.typeChanged.emit(this.type);
     this.urlToImage = this.urlToAssetPath + "A" + this.type + ".png";
     // console.log(this.urlToAsset);
   }

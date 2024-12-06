@@ -1,9 +1,11 @@
 <div tabindex="0">
-    <app-letter-snake [moveKey]="keyMove"/>
+    <app-letter-snake [moveKey]="keyMove" [id]="1" (posChanged)="onSnake1Changed($event)"/>
     <app-letter-compare (typeChanged)="onType1Changed($event)"/>
-    <app-letter-unveil [moveKey]="keyMove"/>
-    <app-letter-rotate/>
-    <app-letter-snake [moveKey]="keyMove"/>
+    <app-letter-unveil [moveKey]="keyMove" (unveiled)="onUnveiled($event)"/>
+    <app-letter-rotate (rotated)="onRotated($event)"/>
+    <app-letter-snake [moveKey]="keyMove" [id]="2" (posChanged)="onSnake2Changed($event)"/>
     <img src="../../../assets/captcha/H.png"/>
     <app-letter-compare (typeChanged)="onType2Changed($event)"/>
+
+    <button (click)="onValidateClick()">Validez captcha</button>
 </div>

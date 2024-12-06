@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-letter-rotate',
@@ -11,6 +11,7 @@ export class LetterRotateComponent {
   urlToAsset: string = "../../../../assets/captcha/";
   rotationAngle!: number;
   isTransitionEnabled: boolean = true;
+  @Output() rotated = new EventEmitter<boolean>();
 
   ngOnInit(){
     this.rotationAngle = 0;
@@ -38,5 +39,13 @@ export class LetterRotateComponent {
       this.rotationAngle += 45*nbrRotation; // Rotation de 45 degrés à chaque clic
       this.rotationAngle %= 360; // Maintenir l'angle entre 0 et 360
     }
+
+    setTimeout(() => {
+      var res = false;
+      if(this.rotationAngle == 0)
+        res = true;
+      console.log("rotated : ", res);
+      this.rotated.emit(res);
+    }, 700); 
   }
 }

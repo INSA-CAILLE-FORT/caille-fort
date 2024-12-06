@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MoveKeyBoard } from '../../../Models/move-keyBoard.type';
 
 @Component({
@@ -12,8 +12,9 @@ export class LetterUnveilComponent {
   private urlToAssetPath: string = "../../../../assets/captcha/";
   urlToImage!: string;
   type!: number;
+  @Output() unveiled = new EventEmitter<boolean>();
   @Input() set moveKey(move: MoveKeyBoard) {
-    if (move != 'SPACE') {
+    if (move == 'SPACE') {
       this.unveil();
     }
   }
@@ -29,11 +30,13 @@ export class LetterUnveilComponent {
   }
 
   unveil(){
-    var tmp = this.getRandomInt(1, 3);
+    var tmp = this.getRandomInt(1, 5);
     //On unveil 1 fois sur 3
     if(tmp == 1 && this.type < 5){
       this.type++;
       this.urlToImage = this.urlToAssetPath + "P" + this.type + ".png";
     }
+    else if(this.type == 5)
+      this.unveiled.emit(true);
   }
 }
