@@ -34,7 +34,6 @@ export class LetterUnveilComponent {
     if(tmp == 1 && this.type < 5){
       this.type++;
       this.urlToImage = this.urlToAssetPath + "P" + this.type + ".png";
-      console.log("unveil");
     }
   }
 }
