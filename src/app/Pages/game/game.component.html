@@ -2,9 +2,12 @@
 <div class="background-image"></div>
 <div class="game-container">
   <div class="tiles">
-<!--    <app-tile *ngFor="let tile of tiles" [tile]="tile"></app-tile>-->
     <app-tile [tile]="tiles[0]" [isOcean]="false" (onQuizFinished)="onHumanQuizFinished($event)"></app-tile>
     <app-tile [tile]="tiles[1]" [hidden]="oceanQuizHiden" [isOcean]="true"></app-tile>
+  </div>
+  <!-- Bouton de retour au menu -->
+  <div class="back-button" (click)="onBackButtonClicked()">
+    Retourner au menu
   </div>
 </div>
 
