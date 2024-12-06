@@ -8,11 +8,12 @@ import { QuestionModel } from '../../Models/Question.model';
 import { TileModel } from '../../Models/Tile.model';
 import { parseGame } from '../../utils/parseGame';
 import {ActivatedRoute} from '@angular/router';
+import {DialogModule} from 'primeng/dialog';
 
 @Component({
   selector: 'app-game',
   standalone: true,
-  imports: [CommonModule, TileComponent, HeaderComponent],  // Ajouter CommonModule ici
+  imports: [CommonModule, TileComponent, HeaderComponent, DialogModule],  // Ajouter CommonModule ici
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.scss'],
 })

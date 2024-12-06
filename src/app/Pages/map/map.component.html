@@ -12,4 +12,11 @@
   </div>
 </div>
 
+<p-dialog [(visible)]="displayModal" header="Bienvenue dans le jeu" [closable]="false">
+  <p>Voici une modale qui s'ouvre automatiquement à l'ouverture de la page.</p>
+  <p-footer>
+    <button type="button" pButton label="Fermer" icon="pi pi-check" (click)="closeModal()"></button>
+  </p-footer>
+</p-dialog>
+
 
