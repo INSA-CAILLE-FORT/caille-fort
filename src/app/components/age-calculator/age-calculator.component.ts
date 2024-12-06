@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ApiService } from '../../services/api.service';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-age-calculator',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule,ProgressSpinnerModule],
   templateUrl: './age-calculator.component.html',
   styleUrls: ['./age-calculator.component.scss']
 })
@@ -15,6 +16,7 @@ export class AgeCalculatorComponent {
   dateOfBirth: string = '';
   ageResult?: number;
   errorMessage?: string;
+  isLoading: boolean = false;
 
   constructor(private apiService: ApiService) {}
 
