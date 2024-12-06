@@ -1,5 +1,5 @@
 
-<p-card *ngIf="!hidden" header="{{ tile.name }}" subheader="{{ tile.subtitle }}" class="tile-card">
+<p-card *ngIf="!hidden" header="{{ tile.name }}" class="tile-card">
   <ng-container *ngIf="tile">
     <div class="tile-image-container" *ngIf="tile.image!=null">
       <img src="assets/img/{{tile.image}}" alt="image" class="tile-image" />
