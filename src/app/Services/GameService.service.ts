@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import response from '../utils/response.json';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +12,7 @@ export class GameService {
 
   getGame(id:number): Observable<any> {
 
-    let data = this.http.get<any>(`${this.apiUrl}/${id}`, { responseType: 'json'});
-    return data;
+    return this.http.get<any>(`${this.apiUrl}/${id}`, {responseType: 'json'});
     // return of(response); // Retourne une observable contenant les données JSON
   }
 
