@@ -20,6 +20,7 @@ export class GameComponent implements OnInit {
   game: GameModel | null = null; // Variable pour stocker les données du jeu
   error: string = ""; // Variable pour stocker les erreurs
   tiles: TileModel[] = []; // Liste des tiles
+  oceanQuizHiden = true;
 
   constructor(private gameService: GameService, private route: ActivatedRoute) {
 
@@ -56,7 +57,12 @@ export class GameComponent implements OnInit {
       this.game.organ.id,
       this.game.organ.name,
       'Organ Information', // Exemple de sous-titre
+
+      this.extractTextByStatus(this.game.organ.questions, 'description'),
+      this.extractTextByStatus(this.game.organ.questions, 'benefice'),
+      this.extractTextByStatus(this.game.organ.questions, 'consequence'),
       null, // Pas d'image pour le moment
+
       this.game.organ.questions
     );
 
@@ -65,7 +71,11 @@ export class GameComponent implements OnInit {
       this.game.oceanPart.id,
       this.game.oceanPart.name,
       'Ocean Part Information', // Exemple de sous-titre
-      null, // Pas d'image pour le moment
+      // Pas d'image pour le moment
+      this.extractTextByStatus(this.game.oceanPart.questions, 'description'),
+      this.extractTextByStatus(this.game.oceanPart.questions, 'benefice'),
+      this.extractTextByStatus(this.game.oceanPart.questions, 'consequence'),
+      null,
       this.game.oceanPart.questions
     );
 
@@ -74,4 +84,16 @@ export class GameComponent implements OnInit {
     this.tiles = [organTile, oceanPartTile];
   }
 
+  private extractTextByStatus(questions: QuestionModel[], status: string): string {
+    // Extraire et concaténer les textes des questions ayant un certain status
+    return questions
+      .filter((q) => q.status === status)
+      .map((q) => q.description)
+      .join('; ');
+  }
+
+  onHumanQuizFinished($event: boolean) {
+    console.log('HERRREEEE');
+    this.oceanQuizHiden = false;
+  }
 }

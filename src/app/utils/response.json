@@ -13,7 +13,8 @@
         "correctAnswer": "Pumping blood",
         "incorrectAnswers": [
           "Producing oxygen",
-          "Storing carbon dioxide"
+          "Storing carbon dioxide",
+          "La réponse D"
         ]
       },
       {
@@ -24,7 +25,8 @@
         "correctAnswer": "Reduced oxygen delivery",
         "incorrectAnswers": [
           "Enhanced brain function",
-          "Improved digestion"
+          "Improved digestion",
+          "La réponse D"
         ]
       },
       {
@@ -32,10 +34,9 @@
         "text": "Describe the heart.",
         "description": "Learn about the structure of the heart.",
         "status": "description",
-        "correctAnswer": "A muscular organ",
+        "correctAnswer": "True",
         "incorrectAnswers": [
-          "A bone",
-          "A gland"
+          "False"
         ]
       }
     ]
@@ -49,10 +50,9 @@
         "text": "Why are coral reefs important?",
         "description": "Explore the benefits of coral reefs for marine biodiversity.",
         "status": "benefice",
-        "correctAnswer": "Support marine biodiversity",
+        "correctAnswer": "False",
         "incorrectAnswers": [
-          "Store oxygen",
-          "Produce carbon dioxide"
+          "True"
         ]
       },
       {
@@ -63,7 +63,8 @@
         "correctAnswer": "Loss of marine species",
         "incorrectAnswers": [
           "Increased oxygen production",
-          "Better water quality"
+          "Better water quality",
+          "La réponse D"
         ]
       },
       {
@@ -74,7 +75,8 @@
         "correctAnswer": "Underwater ecosystems built by corals",
         "incorrectAnswers": [
           "Mountains",
-          "Forests"
+          "Forests",
+          "La réponse D"
         ]
       },
       {
@@ -85,7 +87,8 @@
         "correctAnswer": "Reducing pollution",
         "incorrectAnswers": [
           "Increasing fishing",
-          "Building resorts"
+          "Building resorts",
+          "La réponse D"
         ]
       },
       {
@@ -93,10 +96,9 @@
         "text": "How do coral reefs help humans?",
         "description": "Share the benefits of coral reefs to humans.",
         "status": "share",
-        "correctAnswer": "Provide coastal protection",
+        "correctAnswer": "True",
         "incorrectAnswers": [
-          "Increase deforestation",
-          "Produce metals"
+          "False"
         ]
       },
       {
@@ -107,7 +109,8 @@
         "correctAnswer": "Biodiversity hotspots",
         "incorrectAnswers": [
           "Water scarcity",
-          "Land preservation"
+          "Land preservation",
+          "La réponse D"
         ]
       }
     ]
