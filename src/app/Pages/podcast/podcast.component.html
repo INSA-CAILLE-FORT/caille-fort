@@ -10,7 +10,7 @@
         </div>
         <div class="description">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla ut lorem sit amet eleifend. Nunc lacus erat ullamcorper auctor. Nullam et condimentum nunc. Curabitur ultricies looret sodales.
+            Voici la page dédiée aux PODCASTS de l'application Odyssée.
           </p>
           <div class="slider-controls">
             <button class="slider-button prev" (click)="scrollLeft()"><</button>
@@ -34,7 +34,7 @@
       <div class="progress-bar-container">
         <input type="range" [value]="currentTime" (input)="seek($event)" class="progress-bar">
       </div>
-      <audio #audioPlayer src="assets/audio/La FISA 2025 (1).mp3">
+      <audio #audioPlayer src="assets/audio/PODCAST-AUDIO-Florian-Sévellec.mp3">
         <source [src]="currentPodcast?.audioUrl" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
