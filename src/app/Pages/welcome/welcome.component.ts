@@ -3,6 +3,7 @@ import {NgForOf} from "@angular/common";
 import {TileComponent} from '../../Components/tile/tile.component';
 import {DialogModule} from 'primeng/dialog';
 import {CaptchaComponent} from '../captcha/captcha.component';
+import { RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -11,7 +12,8 @@ import {CaptchaComponent} from '../captcha/captcha.component';
     NgForOf,
     TileComponent,
     DialogModule,
-    CaptchaComponent
+    CaptchaComponent,
+    RouterLink,
   ],
 
   templateUrl: './welcome.component.html',
