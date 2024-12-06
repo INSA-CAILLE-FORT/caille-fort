@@ -1,0 +1,1 @@
+export type MoveKeyBoard = 'UP' | 'DOWN'| 'LEFT'| 'RIGHT'| 'SPACE' |'NONE';
