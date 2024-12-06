@@ -6,6 +6,7 @@ import { TileComponent } from '../../Components/tile/tile.component';
 import { NgForOf, NgStyle } from '@angular/common';
 import {DialogModule} from "primeng/dialog";
 import {Footer} from "primeng/api";
+import { CaptchaComponent } from "../captcha/captcha.component";
 
 @Component({
   selector: 'app-map',
@@ -18,7 +19,7 @@ import {Footer} from "primeng/api";
         NgForOf,
         DialogModule,
         Footer,
-
+    CaptchaComponent
     ],
   templateUrl: './map.component.html',
   styleUrl: './map.component.scss'
