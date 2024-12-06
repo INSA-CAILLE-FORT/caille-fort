@@ -11,5 +11,6 @@ export const routes: Routes = [
   { path: 'map', component: MapComponent },
   { path: 'game/:id', component: GameComponent },
   { path: 'podcast', component: PodcastComponent },
-  { path: 'captcha', component: CaptchaComponent }
+  { path: 'captcha', component: CaptchaComponent },
+  { path: 'about', component: AboutComponent },
 ];
