@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NgOptimizedImage} from '@angular/common';
 import { HeaderComponent} from '../../Components/header/header.component';
+import {FooterComponent} from '../../Components/footer/footer.component';
 
 @Component({
   selector: 'app-about',
@@ -8,6 +9,7 @@ import { HeaderComponent} from '../../Components/header/header.component';
   imports: [
     NgOptimizedImage,
     HeaderComponent,
+    FooterComponent,
   ],
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
