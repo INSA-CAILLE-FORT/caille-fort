@@ -56,3 +56,12 @@ div img {
     align-items: center;
     /* Alignement vertical : centré */
 }
+
+.main-container {
+  display: flex;               /* Utilisation de Flexbox */
+  justify-content: center;     /* Centre le contenu horizontalement */
+  align-items: center;         /* Centre le contenu verticalement */
+  flex-direction: column;      /* Organise les enfants en colonne */
+  height: 100vh;               /* Prend 100% de la hauteur de la fenêtre */
+  width: 100%;
+}

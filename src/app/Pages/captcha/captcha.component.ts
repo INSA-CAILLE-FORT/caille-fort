@@ -115,7 +115,7 @@ export class CaptchaComponent {
   onValidateClick() {
     var isValide = this.captchaValidation();
     if (isValide){
-        this.router.navigate(['/']);
+        this.router.navigate(['/map']);
     }
     else {
       this.nbrError++;
@@ -142,5 +142,9 @@ export class CaptchaComponent {
       res = false;
     console.log(res);
     return res;
+  }
+
+  onBypass() {
+    this.router.navigate(['/map']);
   }
 }
