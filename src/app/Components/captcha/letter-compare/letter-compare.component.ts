@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-letter-compare',
   standalone: true,
-  imports: [],
+  imports: [TooltipModule],
   templateUrl: './letter-compare.component.html',
   styleUrl: './letter-compare.component.scss'
 })
