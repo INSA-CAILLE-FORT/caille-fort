@@ -5,6 +5,7 @@ import { QuestionModel } from '../Models/Question.model';
 
 export function parseGame(data: any): GameModel {
   // Parse les questions pour un organ ou une partie de l'océan
+  console.log(data);
   const parseQuestions = (questions: any[]): QuestionModel[] => {
     return questions.map((q) => {
       return new QuestionModel(
