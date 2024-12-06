@@ -1,0 +1,16 @@
+.tile-content {
+
+  padding: 10px;
+}
+
+.tile-green {
+  border: 3px solid var(--green);
+  border-radius: 12px;
+  color: var(--green);
+}
+
+.tile-red {
+  border: 3px solid var(--red);
+  border-radius: 12px;
+  color: var(--red);
+}

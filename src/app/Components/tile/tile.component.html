@@ -1,15 +1,23 @@
 <p-card header="{{ tile.name }}" subheader="{{ tile.subtitle }}" class="tile-card">
   <ng-container *ngIf="tile">
     <app-quizz/>
-    <p>
-      <strong>Description:</strong> {{ tile.description }}
-    </p>
-    <p>
-      <strong>Benefits:</strong> {{ tile.benefits }}
-    </p>
-    <p>
-      <strong>Dysfunctions:</strong> {{ tile.dysfunctions }}
-    </p>
+    <div class="tile-content-container">
+      <app-tile-content
+        title="Qu'est-ce que c'est ?"
+        content="{{ tile.description }}"
+        contentstyle="normal"
+      ></app-tile-content>
+      <app-tile-content
+        title="Quels sont les bénéfices"
+        content="{{ tile.benefits }}"
+        contentstyle="green"
+      ></app-tile-content>
+      <app-tile-content
+        title="Les désavantages"
+        content="{{ tile.dysfunctions }}"
+        contentstyle="red"
+      ></app-tile-content>
+    </div>
 
 <!--    Ajouter les questions -->
   </ng-container>

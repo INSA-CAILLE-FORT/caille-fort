@@ -3,11 +3,42 @@
   ::ng-deep .p-card {
     background: #CCC;
     border-radius: 12px;
-    padding: 1rem;
+    padding: 30px;
+    max-height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  ::ng-deep .p-card::-webkit-scrollbar {
+    display: none;
+  }
+
+  ::ng-deep .p-card-title {
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  ::ng-deep .p-card-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
   }
 
   display: block;
   padding: 1rem;
+}
+
+app-tile-content {
+  width: 100%;
+}
+
+.tile-content-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 

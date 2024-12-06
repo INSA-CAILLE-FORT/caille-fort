@@ -11,13 +11,13 @@
   h1 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #333;
   }
 
 }
 
 .tiles {
   width: 75%;
+  max-height: 70vh;
   display: flex;
   border-radius: 12px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
