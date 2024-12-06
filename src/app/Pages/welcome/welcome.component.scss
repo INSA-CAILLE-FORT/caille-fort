@@ -1,0 +1,25 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+}
+
+/* Conteneur pour l'image */
+.image-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+
+/* Image avec largeur de 80% */
+.image {
+  width: auto;
+  height: 60%;
+}

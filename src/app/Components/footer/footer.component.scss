@@ -2,7 +2,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 180px;
+  padding: 0px 180px;
   background-color: var(--accentuated-blue);
   bottom: 0;
   width: 100%;
@@ -30,5 +30,6 @@ footer {
 }
 
 .logo {
-  width: 90%;
+  width: auto;
+  height: 3rem;
 }
