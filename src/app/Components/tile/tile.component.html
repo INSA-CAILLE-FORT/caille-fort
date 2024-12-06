@@ -1,10 +1,10 @@
 
-<p-card *ngIf="!hidden" header="{{ tile.name }}" subheader="{{ tile.subtitle }}" class="tile-card">
+<p-card *ngIf="!hidden" header="{{ tile.name }}" class="tile-card">
   <ng-container *ngIf="tile">
-    <div class="tile-image-container" *ngIf="tile.image!=null">
-      <img src="assets/img/{{tile.image}}" alt="image" class="tile-image" />
+    <div class="tile-image-container" *ngIf="tile.name!=null">
+      <img src="assets/img/illustration/{{tile.name}}.png" alt="image" class="tile-image" />
     </div>
-    <div class="tile-image-container" *ngIf="tile.image==null">
+    <div class="tile-image-container" *ngIf="tile.name==null">
       <img src="assets/img/logo.png" alt="image" class="tile-image" />
     </div>
     <app-quizz [isOcean]="isOcean" [questions]="tile.questions" (quizFinishedEvent)="onQuizFinishedFunc($event)"/>
