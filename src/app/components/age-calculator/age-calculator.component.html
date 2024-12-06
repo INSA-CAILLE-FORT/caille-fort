@@ -1,0 +1,20 @@
+<!-- src/app/components/age-calculator/age-calculator.component.html -->
+<div class="age-calculator-container">
+  <!-- <h1>Calcul de l'âge</h1> -->
+  <div>
+    <label for="dob">Date de naissance :</label>
+    <input id="dob" type="date" [(ngModel)]="dateOfBirth">
+  </div>
+  <button (click)="calculateAge()">Quelle est votre âge ?</button>
+
+  <!-- Roue de chargement -->
+  <p-progressSpinner *ngIf="isLoading" styleClass="custom-spinner"></p-progressSpinner>
+
+  <div *ngIf="ageResult !== undefined">
+    <p>Votre âge est : {{ ageResult }}</p>
+  </div>
+
+  <div *ngIf="errorMessage">
+    <p style="color: red;">{{ errorMessage }}</p>
+  </div>
+</div>
