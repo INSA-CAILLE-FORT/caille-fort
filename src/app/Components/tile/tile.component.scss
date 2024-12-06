@@ -1,9 +1,11 @@
 :host {
 
   ::ng-deep .p-card {
+    color: var(--blue);
     background: #CCC;
     border-radius: 12px;
     padding: 30px;
+    min-height: 750px;
     max-height: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -25,12 +27,16 @@
     font-weight: 300;
   }
 
+  ::ng-deep .hidden > .p-card > .p-card-body {
+    height: 700px;
+  }
+
+  ::ng-deep .hidden > .p-card > .p-card-body > .p-card-content {
+    height: 700px;
+  }
+
   display: block;
   padding: 1rem;
-}
-
-app-tile-content {
-  width: 100%;
 }
 
 .tile-image-container {
@@ -43,6 +49,16 @@ app-tile-content {
   width: 70%;
   border-radius: 12px;
 }
+
+.hidden-tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 5rem;
+}
+
 
 
 
