@@ -21,9 +21,11 @@ export class CaptchaComponent {
   private rotated!: boolean;
   private posSnake1!: number;
   private posSnake2!: number;
+  mousePath: { x: number, y: number }[] = [];
+  private nbrError!: number;
 
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.keyMove = 'NONE';
@@ -33,6 +35,7 @@ export class CaptchaComponent {
     this.rotated = false;
     this.posSnake1 = 0;
     this.posSnake2 = 0;
+    this.nbrError = 0;
   }
 
   onType1Changed(type: number) {
@@ -61,7 +64,6 @@ export class CaptchaComponent {
 
   @HostListener('document:keydown', ['$event'])
   onKeydown(event: KeyboardEvent): void {
-    // this.keyMove = 'NONE';
     setTimeout(() => {
       this.keyMove = 'NONE';
     }, 50);
@@ -110,10 +112,16 @@ export class CaptchaComponent {
     }
   }
 
-  onValidateClick(){
+  onValidateClick() {
     var isValide = this.captchaValidation();
-    if(isValide)
-      this.router.navigate(['/']);
+    if (isValide){
+        this.router.navigate(['/']);
+    }
+    else {
+      this.nbrError++;
+      if (this.nbrError >= 3)
+        window.location.reload();
+    }
   }
 
   captchaValidation(): boolean {

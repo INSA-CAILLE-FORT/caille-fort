@@ -1,0 +1,58 @@
+img {
+    height: 100px;
+    align-self: flex-start;
+}
+
+.captcha-button {
+    /* Apparence générale */
+    background-color: #4caf50;
+    /* Vert */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    /* Ombre pour donner du relief */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.captcha-button:hover {
+    /* Effet au survol */
+    background-color: #45a049;
+    /* Vert légèrement plus foncé */
+    transform: translateY(-2px);
+    /* Légère remontée */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.captcha-button:active {
+    /* Effet lors du clic */
+    background-color: #388e3c;
+    /* Vert encore plus foncé */
+    transform: translateY(2px);
+    /* Légère descente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.captcha-button:focus {
+    /* Style pour l'accessibilité */
+    outline: 3px solid #81c784;
+    /* Contour vert clair */
+    outline-offset: 2px;
+}
+
+.row-container {
+    display: flex;
+    flex-direction: row;
+    /* Définit l'alignement horizontal */
+    gap: 16px;
+    /* Espace entre les éléments (facultatif) */
+    justify-content: flex-start;
+    /* Alignement horizontal : à gauche */
+    align-items: center;
+    /* Alignement vertical : centré */
+}

@@ -1,4 +1,4 @@
-<div tabindex="0">
+<div class="row-container">
     <app-letter-snake [moveKey]="keyMove" [id]="1" (posChanged)="onSnake1Changed($event)"/>
     <app-letter-compare (typeChanged)="onType1Changed($event)"/>
     <app-letter-unveil [moveKey]="keyMove" (unveiled)="onUnveiled($event)"/>
@@ -7,5 +7,5 @@
     <img src="../../../assets/captcha/H.png"/>
     <app-letter-compare (typeChanged)="onType2Changed($event)"/>
 
-    <button (click)="onValidateClick()">Validez captcha</button>
+    <button (click)="onValidateClick()" class="captcha-button">Valider captcha</button>
 </div>

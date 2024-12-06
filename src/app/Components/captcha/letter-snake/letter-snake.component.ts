@@ -12,6 +12,7 @@ export class LetterSnakeComponent {
   private urlToAssetPath: string = "../../../../assets/captcha/";
   urlToImage!: string;
   position!: number;
+  textExplain!: string;
   @Output() posChanged = new EventEmitter<number>();
   @Input() id!: number;
   @Input() set moveKey(move: MoveKeyBoard) {
@@ -23,6 +24,12 @@ export class LetterSnakeComponent {
   ngOnInit() {
     this.position = this.getRandomInt(1, 6);
     this.urlToImage = this.urlToAssetPath + "C" + this.position + ".png";
+    if(this.id == 1){
+      this.textExplain = "Touche fléchées pour arriver en bas à droite";
+    }
+    else if(this.id == 2){
+      this.textExplain = "ZQSD pour arriver en bas à droite";
+    }
   }
 
   getRandomInt(min: number, max: number): number {
