@@ -1,22 +1,22 @@
-<div class="quizz-container">
+<div class="quizz-container" *ngIf="!quizzFinished">
   <div class="quizz-header">
     <h3>Dévoile toute la page</h3>
     <h3>{{currentQuestion}}/{{totalQuestions}}</h3>
   </div>
   <div class="quizz-question">
-    {{question.text}}
+    {{getCurrentQuestion.text}}
   </div>
 
   <!-- Afficher les boutons seulement si la réponse n'a pas encore été donnée -->
   <div *ngIf="!isAnswered">
-    <div class="quizz-buttons" *ngIf="question.type === 'truefalse'">
+    <div class="quizz-buttons" *ngIf="getQuestionType(getCurrentQuestion) === 'true/false'">
       <button class="quizz-button true" (click)="answer(true)">VRAI</button>
       <button class="quizz-button false" (click)="answer(false)">FAUX</button>
     </div>
 
-    <div class="quizz-buttons" *ngIf="question.type === 'multiple'">
+    <div class="quizz-buttons" *ngIf="getQuestionType(getCurrentQuestion) === 'QCM'">
       <button
-        *ngFor="let option of question.options"
+        *ngFor="let option of getOptions(getCurrentQuestion)"
         class="quizz-button"
         (click)="answer(option)"
       >
@@ -24,7 +24,7 @@
       </button>
     </div>
 
-    <div class="quizz-buttons" *ngIf="question.type === 'text'">
+    <div class="quizz-buttons" *ngIf="getQuestionType(getCurrentQuestion) === 'text'">
       <input
         type="text"
         placeholder="Votre réponse"
@@ -41,7 +41,39 @@
     [ngClass]="{'feedback-right': isCorrect, 'feedback-wrong': !isCorrect}"
   >
     <p>{{ feedbackMessage }}</p>
-    <u class="next-question">Question suivante</u>
+    <u class="next-question" *ngIf="displayNextQuestion" (click)="nextQuestion()">{{linkMessage}}</u>
   </div>
 
+</div>
+<div class="tile-content-container">
+  <app-tile-content *ngIf="currentQuestion >= 2 || quizzFinished"
+                    title="Qu'est-ce que c'est ?"
+                    content="{{ questions[0].description }}"
+                    contentstyle="normal"
+  ></app-tile-content>
+  <app-tile-content *ngIf="currentQuestion >= 3 || !displayNextQuestion"
+                    title="Quels sont les bénéfices"
+                    content="{{ questions[1].description }}"
+                    contentstyle="green"
+  ></app-tile-content>
+  <app-tile-content *ngIf="(!displayNextQuestion) || (totalQuestions==6 && (currentQuestion >= 4 || quizzFinished))"
+                    title="Les désavantages"
+                    content="{{  questions[2].description  }}"
+                    contentstyle="red"
+  ></app-tile-content>
+  <app-tile-content *ngIf="(totalQuestions==6 && (currentQuestion >= 5 || quizzFinished))"
+                    title="Learn"
+                    content="{{  questions[3].description  }}"
+                    contentstyle="normal"
+  ></app-tile-content>
+  <app-tile-content *ngIf="(totalQuestions==6 && (currentQuestion >= 6 || quizzFinished))"
+                    title="Share"
+                    content="{{  questions[4].description  }}"
+                    contentstyle="normal"
+  ></app-tile-content>
+  <app-tile-content *ngIf="(totalQuestions==6 && quizzFinished)"
+                    title="Act"
+                    content="{{  questions[5].description  }}"
+                    contentstyle="normal"
+  ></app-tile-content>
 </div>

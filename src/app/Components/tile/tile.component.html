@@ -1,27 +1,23 @@
-<p-card header="{{ tile.name }}" subheader="{{ tile.subtitle }}" class="tile-card">
+
+<p-card *ngIf="!hidden" header="{{ tile.name }}" subheader="{{ tile.subtitle }}" class="tile-card">
   <ng-container *ngIf="tile">
-    <div class="tile-image-container">
-      <img src="assets/img/poumons.webp" alt="image" class="tile-image" />
+    <div class="tile-image-container" *ngIf="tile.image!=null">
+      <img src="assets/img/{{tile.image}}" alt="image" class="tile-image" />
     </div>
-    <app-quizz/>
-    <div class="tile-content-container">
-      <app-tile-content
-        title="Qu'est-ce que c'est ?"
-        content="{{ tile.description }}"
-        contentstyle="normal"
-      ></app-tile-content>
-      <app-tile-content
-        title="Quels sont les bénéfices"
-        content="{{ tile.benefits }}"
-        contentstyle="green"
-      ></app-tile-content>
-      <app-tile-content
-        title="Les désavantages"
-        content="{{ tile.dysfunctions }}"
-        contentstyle="red"
-      ></app-tile-content>
+    <div class="tile-image-container" *ngIf="tile.image==null">
+      <img src="assets/img/logo.png" alt="image" class="tile-image" />
     </div>
+    <app-quizz [isOcean]="isOcean" [questions]="tile.questions" (quizFinishedEvent)="onQuizFinishedFunc($event)"/>
 
 <!--    Ajouter les questions -->
   </ng-container>
+
+<!--  <ng-container *ngIf="hidden">-->
+<!--    <p>? ? ?</p>-->
+<!--  </ng-container>-->
+</p-card>
+<p-card *ngIf="hidden" class="tile-card hidden">
+  <div class="hidden-tile">
+    <h1>?</h1>
+  </div>
 </p-card>
