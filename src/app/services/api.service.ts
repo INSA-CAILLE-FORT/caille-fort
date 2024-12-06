@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
 
-  private baseUrl = 'http://localhost:8083/api';
+  private baseUrl = 'https://api.insa-caille-fort.fr:8083/api';
 
   constructor(private http: HttpClient) { }
 
