@@ -44,7 +44,6 @@ export class LetterRotateComponent {
       var res = false;
       if(this.rotationAngle == 0)
         res = true;
-      console.log("rotated : ", res);
       this.rotated.emit(res);
     }, 700); 
   }
