@@ -45,20 +45,9 @@ export class MapComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    /*const modalClosed = localStorage.getItem('modalClosed');
-    if (!modalClosed) {
-      this.displayModal = true;
-    } else {
-      this.displayModal = false;
-    }*/
-    this.displayModal = true;
     this.updateMapDimensions();
   }
 
-  closeModal() {
-    this.displayModal = false;
-    localStorage.setItem('modalClosed', 'true');
-  }
 
   @HostListener('window:resize')
   onResize() {
