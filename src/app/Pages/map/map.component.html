@@ -1,3 +1,22 @@
 <app-header/>
-<div class="map">
+<div class="map-container">
+  <div
+    class="map"
+    [ngStyle]="{
+      width: mapWidth + 'px',
+      height: mapHeight + 'px',
+      marginTop: topMargin,
+      marginLeft: leftMargin
+    }"
+  >
+    <div
+      class="point"
+      *ngFor="let point of points"
+      [ngStyle]="getPointStyle(point)"
+    >
+      <img src="assets/img/green_map_button.png" alt="point">
+    </div>
+  </div>
 </div>
+
+
