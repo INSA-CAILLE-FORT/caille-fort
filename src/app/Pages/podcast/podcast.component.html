@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="podcast-container">
+
+  <div class="top">
+
+    <div class="content-podcast">
+      <div class="podcast-frame">
+        <div class="title-podcast">
+          <h1>Nos Podcasts</h1>
+        </div>
+        <div class="description">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fringilla ut lorem sit amet eleifend. Nunc lacus erat ullamcorper auctor. Nullam et condimentum nunc. Curabitur ultricies looret sodales.
+          </p>
+          <div class="slider-controls">
+            <button class="slider-button prev" (click)="scrollLeft()"><</button>
+            <button class="slider-button next" (click)="scrollRight()">></button>
+          </div>
+        </div>
+        <div class="podcast-slider">
+          <div #podcastCards class="podcast-cards">
+            <app-podcast-card *ngFor="let podcast of podcasts" [podcast]="podcast" (audioUrlSelected)="onAudioUrlSelected($event)"></app-podcast-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="player-container">
+      <img [src]="currentPodcast?.imageUrl ? currentPodcast.imageUrl : 'assets/img/podcast_exemple.png'" alt="Podcast Cover" class="cover-image" >
+      <div class="play-button" (click)="togglePlay()">
+        <img [src]="isPlaying ? 'assets/img/pause-icon.png' : 'assets/img/play-icon.png'" alt="Play Icon">
+      </div>
+      <div class="progress-bar-container">
+        <input type="range" [value]="currentTime" (input)="seek($event)" class="progress-bar">
+      </div>
+      <audio #audioPlayer src="assets/audio/La FISA 2025 (1).mp3">
+        <source [src]="currentPodcast?.audioUrl" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+</div>

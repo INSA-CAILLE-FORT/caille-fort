@@ -1,0 +1,27 @@
+.podcast-card {
+  cursor: pointer; // Ajoutez ceci pour indiquer que l'élément est cliquable
+  background: #CCCCCC;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  width: 300px;
+  overflow: hidden;
+  text-align: center;
+
+  &:hover {
+    transform: scale(1.05); // Ajoutez un effet de zoom au survol
+  }
+}
+
+.podcast-card img {
+  width: 100%;
+  height: auto;
+}
+
+.podcast-info {
+  padding: 10px;
+}
+
+.podcast-info h2 {
+  margin: 10px 0;
+}

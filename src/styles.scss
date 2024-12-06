@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  font-family: 'Comfortaa', sans-serif;
+}
+
+
+html, body {
+  height: 100vh;
+  background-color: #6d9ea0;
+}
+
+body{
+  margin: 0;
+}
+
+:root{
+  --blue: #162752;
+  --light-blue: #62B1E3;
+  --dark-blue: #080E1F;
+  --bg: #EBEEFF;
+  --bg-secondary: #F1F1E6;
+  --red: #4F141D;
+  --red-secondary: #844348;
+  --green: #007D58;
+  --light-green: #00B38A;
+  --yellow: #FFB55E;
+  --dark-yellow: #816C3C;
+}
