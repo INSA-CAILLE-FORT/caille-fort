@@ -8,7 +8,8 @@ import { AboutComponent} from './Pages/about/about.component';
 export const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'map', component: MapComponent },
-  { path: 'game', component: GameComponent },
+  { path: 'game/:id', component: GameComponent },
   { path: 'podcast', component: PodcastComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: '**', redirectTo: '/map' }
 ];

@@ -1,0 +1,115 @@
+{
+  "id": 1,
+  "name": "Heart Function",
+  "organ": {
+    "id": 1,
+    "name": "Heart",
+    "questions": [
+      {
+        "id": 1,
+        "text": "What is the primary role of the heart?",
+        "description": "Understand the role of the heart in the circulatory system.",
+        "status": "benefice",
+        "correctAnswer": "Pumping blood",
+        "incorrectAnswers": [
+          "Producing oxygen",
+          "Storing carbon dioxide"
+        ]
+      },
+      {
+        "id": 2,
+        "text": "What happens if the heart stops functioning?",
+        "description": "Identify the consequences of heart failure.",
+        "status": "consequence",
+        "correctAnswer": "Reduced oxygen delivery",
+        "incorrectAnswers": [
+          "Enhanced brain function",
+          "Improved digestion"
+        ]
+      },
+      {
+        "id": 3,
+        "text": "Describe the heart.",
+        "description": "Learn about the structure of the heart.",
+        "status": "description",
+        "correctAnswer": "A muscular organ",
+        "incorrectAnswers": [
+          "A bone",
+          "A gland"
+        ]
+      }
+    ]
+  },
+  "oceanPart": {
+    "id": 1,
+    "name": "Coral Reef",
+    "questions": [
+      {
+        "id": 10,
+        "text": "Why are coral reefs important?",
+        "description": "Explore the benefits of coral reefs for marine biodiversity.",
+        "status": "benefice",
+        "correctAnswer": "Support marine biodiversity",
+        "incorrectAnswers": [
+          "Store oxygen",
+          "Produce carbon dioxide"
+        ]
+      },
+      {
+        "id": 11,
+        "text": "What is a consequence of coral reef destruction?",
+        "description": "Understand the impact of losing coral reefs.",
+        "status": "consequence",
+        "correctAnswer": "Loss of marine species",
+        "incorrectAnswers": [
+          "Increased oxygen production",
+          "Better water quality"
+        ]
+      },
+      {
+        "id": 12,
+        "text": "Describe coral reefs.",
+        "description": "Learn about the structure of coral reefs.",
+        "status": "description",
+        "correctAnswer": "Underwater ecosystems built by corals",
+        "incorrectAnswers": [
+          "Mountains",
+          "Forests"
+        ]
+      },
+      {
+        "id": 13,
+        "text": "How can humans protect coral reefs?",
+        "description": "Learn about actions to protect coral reefs.",
+        "status": "act",
+        "correctAnswer": "Reducing pollution",
+        "incorrectAnswers": [
+          "Increasing fishing",
+          "Building resorts"
+        ]
+      },
+      {
+        "id": 14,
+        "text": "How do coral reefs help humans?",
+        "description": "Share the benefits of coral reefs to humans.",
+        "status": "share",
+        "correctAnswer": "Provide coastal protection",
+        "incorrectAnswers": [
+          "Increase deforestation",
+          "Produce metals"
+        ]
+      },
+      {
+        "id": 15,
+        "text": "What can we learn from coral reefs?",
+        "description": "Understand scientific insights from coral reefs.",
+        "status": "learn",
+        "correctAnswer": "Biodiversity hotspots",
+        "incorrectAnswers": [
+          "Water scarcity",
+          "Land preservation"
+        ]
+      }
+    ]
+  }
+}

@@ -4,6 +4,7 @@ import { CardModule } from 'primeng/card';
 import { AccordionModule } from 'primeng/accordion';
 import { NgForOf, NgIf } from '@angular/common';
 import {QuizzComponent} from '../quizz/quizz.component';
+import {QuestionModel} from '../../Models/Question.model';
 
 @Component({
   selector: 'app-tile',
@@ -13,6 +14,6 @@ import {QuizzComponent} from '../quizz/quizz.component';
   styleUrls: ['./tile.component.scss']
 })
 export class TileComponent {
-  @Input() tile: TileModel = new TileModel(0, '', '', '', '', '', []);
+  @Input() tile!: TileModel;
 }
 
