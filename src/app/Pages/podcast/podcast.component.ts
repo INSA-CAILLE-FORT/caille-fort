@@ -15,6 +15,7 @@ import { PodcastCardComponent } from '../../Components/podcast-card/podcast-card
   styleUrls: ['./podcast.component.scss']
 })
 export class PodcastComponent {
+  maxTime = 100;
   podcasts = [
     {
       title: 'PODCAST-AUDIO-Florian-Sévellec',
