@@ -11,8 +11,6 @@ import {NgClass} from '@angular/common';
   styleUrl: './tile-content.component.scss'
 })
 export class TileContentComponent {
-
-
   @Input() title!: string; // Titre du contenu
   @Input() content!: string; // Contenu textuel
   @Input() contentstyle: 'normal' | 'green' | 'red' = 'normal'; // Style (normal, green ou red)

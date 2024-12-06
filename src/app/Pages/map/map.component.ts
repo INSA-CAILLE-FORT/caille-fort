@@ -14,6 +14,7 @@ import { NgForOf, NgStyle } from '@angular/common';
     TileComponent,
     NgStyle,
     NgForOf,
+
   ],
   templateUrl: './map.component.html',
   styleUrl: './map.component.scss'
