@@ -1,0 +1,47 @@
+<div class="quizz-container">
+  <div class="quizz-header">
+    <h3>Dévoile toute la page</h3>
+    <h3>{{currentQuestion}}/{{totalQuestions}}</h3>
+  </div>
+  <div class="quizz-question">
+    {{question.text}}
+  </div>
+
+  <!-- Afficher les boutons seulement si la réponse n'a pas encore été donnée -->
+  <div *ngIf="!isAnswered">
+    <div class="quizz-buttons" *ngIf="question.type === 'truefalse'">
+      <button class="quizz-button true" (click)="answer(true)">VRAI</button>
+      <button class="quizz-button false" (click)="answer(false)">FAUX</button>
+    </div>
+
+    <div class="quizz-buttons" *ngIf="question.type === 'multiple'">
+      <button
+        *ngFor="let option of question.options"
+        class="quizz-button"
+        (click)="answer(option)"
+      >
+        {{ option }}
+      </button>
+    </div>
+
+    <div class="quizz-buttons" *ngIf="question.type === 'text'">
+      <input
+        type="text"
+        placeholder="Votre réponse"
+        class="quizz-textbox"
+      />
+      <button class="quizz-button text" (click)="answer(userAnswer)">Valider</button>
+    </div>
+  </div>
+
+  <!-- Afficher le message une fois la réponse donnée -->
+  <div
+    class="quizz-feedback"
+    *ngIf="isAnswered"
+    [ngClass]="{'feedback-right': isCorrect, 'feedback-wrong': !isCorrect}"
+  >
+    <p>{{ feedbackMessage }}</p>
+    <u class="next-question">Question suivante</u>
+  </div>
+
+</div>
