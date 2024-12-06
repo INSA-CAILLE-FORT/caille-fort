@@ -19,11 +19,10 @@
         </div>
         <div class="podcast-slider">
           <div #podcastCards class="podcast-cards">
-            <app-podcast-card *ngFor="let podcast of podcasts" [podcast]="podcast" (playPodcast)="playPodcast($event)"></app-podcast-card>
+            <app-podcast-card *ngFor="let podcast of podcasts" [podcast]="podcast" (audioUrlSelected)="onAudioUrlSelected($event)"></app-podcast-card>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-

@@ -9,9 +9,9 @@ import { Component,Input, Output, EventEmitter } from '@angular/core';
 })
 export class PodcastCardComponent {
   @Input() podcast: any;
-  @Output() playPodcast = new EventEmitter<any>();
+  @Output() audioUrlSelected = new EventEmitter<string>();
 
   handleClick() {
-    this.playPodcast.emit(this.podcast);
+    this.audioUrlSelected.emit(this.podcast.audioUrl);
   }
 }
