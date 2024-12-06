@@ -9,6 +9,7 @@ import {TileComponent} from '../../Components/tile/tile.component';
     NgForOf,
     TileComponent
   ],
+
   templateUrl: './welcome.component.html',
   styleUrl: './welcome.component.scss'
 })
