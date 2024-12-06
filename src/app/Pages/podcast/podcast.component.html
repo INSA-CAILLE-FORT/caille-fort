@@ -27,14 +27,14 @@
   </div>
   <div class="bottom">
     <div class="player-container">
-      <img [src]="currentPodcast?.imageUrl" alt="Podcast Cover" class="cover-image">
+      <img [src]="currentPodcast?.imageUrl ? currentPodcast.imageUrl : 'assets/img/podcast_exemple.png'" alt="Podcast Cover" class="cover-image" >
       <div class="play-button" (click)="togglePlay()">
-        <img [src]="isPlaying ? 'path/to/pause-icon.png' : 'path/to/play-icon.png'" alt="Play Icon">
+        <img [src]="isPlaying ? 'assets/img/pause-icon.png' : 'assets/img/play-icon.png'" alt="Play Icon">
       </div>
       <div class="progress-bar-container">
         <input type="range" [value]="currentTime" (input)="seek($event)" class="progress-bar">
       </div>
-      <audio #audioPlayer src="assets/audio/La FISA 2025 (6).mp3">
+      <audio #audioPlayer src="assets/audio/La FISA 2025 (1).mp3">
         <source [src]="currentPodcast?.audioUrl" type="audio/mpeg">
         Your browser does not support the audio element.
       </audio>
