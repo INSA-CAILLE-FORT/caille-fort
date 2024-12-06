@@ -1,5 +1,5 @@
 .about-us-container {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -22,7 +22,7 @@
 
 .content-about {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   height: 90vh;
   transform: translate(-50%, -50%);
@@ -33,7 +33,7 @@
 }
 
 .photo-of-us {
-  width: 35vw;
+  width: 30vw;
   height: auto;
   max-width: 100%;
 }
@@ -44,7 +44,7 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
-  margin-bottom: 80px;
+  margin-bottom: 180px;
 }
 
 .header-container {
@@ -60,3 +60,4 @@
   background: none;
   padding: 2px;
 }
+
