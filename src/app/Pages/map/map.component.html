@@ -1,5 +1,8 @@
 <app-header/>
 <div class="map">
+  <div class="boat">
+    <img src="assets/img/boat.png" alt="boat" [ngStyle]="getPointStyle({x: 50, y: 68})">
+  </div>
   <div class="points">
     <div *ngFor="let point of points; let i = index"
          class="point"
@@ -11,12 +14,5 @@
     </div>
   </div>
 </div>
-
-<p-dialog [(visible)]="displayModal" header="Bienvenue dans le jeu" [closable]="false">
-  <p>Voici une modale qui s'ouvre automatiquement à l'ouverture de la page.</p>
-  <p-footer>
-    <button type="button" pButton label="Fermer" icon="pi pi-check" (click)="closeModal()"></button>
-  </p-footer>
-</p-dialog>
 
 
