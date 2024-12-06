@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForOf} from "@angular/common";
 import {TileComponent} from '../../Components/tile/tile.component';
+import {DialogModule} from 'primeng/dialog';
+import {CaptchaComponent} from '../captcha/captcha.component';
 
 @Component({
   selector: 'app-welcome',
   standalone: true,
   imports: [
     NgForOf,
-    TileComponent
+    TileComponent,
+    DialogModule,
+    CaptchaComponent
   ],
 
   templateUrl: './welcome.component.html',
@@ -15,7 +19,8 @@ import {TileComponent} from '../../Components/tile/tile.component';
 })
 export class WelcomeComponent {
 
+
   onStartClicked() {
-    window.location.href = '/map';
+    window.location.href = '/captcha';
   }
 }
