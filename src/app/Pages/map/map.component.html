@@ -5,7 +5,8 @@
          class="point"
          [ngStyle]="getPointStyle(point)"
          (mouseenter)="onMouseEnter(i)"
-         (mouseleave)="onMouseLeave()">
+         (mouseleave)="onMouseLeave()"
+         (click)="redirectToGame(i)">
       <img [src]="getPointImage(i)" alt="point">
     </div>
   </div>

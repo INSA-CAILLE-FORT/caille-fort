@@ -84,4 +84,8 @@ export class MapComponent {
   getPointImage(index: number) {
     return this.hoveredPoint === index ? 'assets/img/hover_map_button.png' : 'assets/img/green_map_button.png';
   }
+
+  redirectToGame(i: number) {
+    window.location.href = `/game/${i + 1}`;
+  }
 }
