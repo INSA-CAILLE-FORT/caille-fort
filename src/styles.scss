@@ -4,10 +4,15 @@
 * {
   font-family: 'Comfortaa', sans-serif;
 }
+
+
+html, body {
+  height: 100vh;
+  background-color: #6d9ea0;
+}
+
 body{
   margin: 0;
-  background: var(--bg);
-  background-color: #6d9ea0; // Couleur de fond de la page
 }
 
 :root{
