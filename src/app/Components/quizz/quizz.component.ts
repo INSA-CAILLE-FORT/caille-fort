@@ -53,11 +53,12 @@ export class QuizzComponent {
   }
 
   getOptions(question: QuestionModel): string[] {
+    console.log('Question :', question);
     if (this.getQuestionType(question) === 'QCM') {
       const options = [...question.incorrectAnswers];
       const correctAnswerIndex = Math.floor(Math.random() * (options.length + 1));
       options.splice(correctAnswerIndex, 0, question.correctAnswer);
-      return options;
+      return options.map((o) => typeof o === 'string' ? o : o.answer);
     } else {
       return [];
     }
@@ -65,7 +66,7 @@ export class QuizzComponent {
 
   answer(response: string): void {
     if (this.getQuestionType(this.questions[this.currentQuestionIndex]) === 'QCM' || this.getQuestionType(this.questions[this.currentQuestionIndex]) === 'true/false') {
-      this.isCorrect = response === this.getCurrentQuestion.correctAnswer.toString().trim().toLowerCase();
+      this.isCorrect = response.toLowerCase().trim() === this.getCurrentQuestion.correctAnswer.toString().trim().toLowerCase();
     } else {
       this.isCorrect = response === this.getCurrentQuestion.correctAnswer;
     }

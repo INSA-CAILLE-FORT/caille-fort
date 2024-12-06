@@ -36,10 +36,18 @@ export class GameComponent implements OnInit {
   }
 
   private fetchGameData(id: number): void {
-    console.log('here');
     this.gameService.getGame(id).subscribe({
       next: (data) => {
         this.game = parseGame(data); // Utilisation de parseGame ici
+        let questionsTmp: QuestionModel[] = this.game.oceanPart.questions;
+        let learnQuestion = questionsTmp.find((q) => q.status === 'learn');
+        let shareQuestion = questionsTmp.find((q) => q.status === 'share');
+        let actQuestion = questionsTmp.find((q) => q.status === 'act');
+        const orderedQuestions: QuestionModel[] = [
+          ...questionsTmp.filter(q => q.status != 'learn' && q.status != 'share' && q.status != 'act'),
+          learnQuestion, shareQuestion, actQuestion
+        ].filter(q => q !== undefined) || [];
+        this.game = {...this.game, oceanPart: {...this.game.oceanPart, questions: orderedQuestions}};
         console.log('Données chargées avec succès :', data);
         this.transformToTiles(); // Transformation en tiles
         console.log('Données transformée avec succès :', this.game);
