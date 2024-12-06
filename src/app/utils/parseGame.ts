@@ -5,6 +5,7 @@ import { QuestionModel } from '../Models/Question.model';
 
 export function parseGame(data: any): GameModel {
   // Parse les questions pour un organ ou une partie de l'océan
+  console.log(data);
   const parseQuestions = (questions: any[]): QuestionModel[] => {
     return questions.map((q) => {
       return new QuestionModel(
@@ -22,14 +23,16 @@ export function parseGame(data: any): GameModel {
   const organ = new OrganModel(
     data.organ.id,
     data.organ.name,
-    parseQuestions(data.organ.questions)
+    parseQuestions(data.organ.questions),
+    data.organ.image || null
   );
 
   // Parse la partie de l'océan
   const oceanPart = new OceanPartModel(
     data.oceanPart.id,
     data.oceanPart.name,
-    parseQuestions(data.oceanPart.questions)
+    parseQuestions(data.oceanPart.questions),
+    data.oceanPart.image || null
   );
 
   // Retourne l'objet GameModel
