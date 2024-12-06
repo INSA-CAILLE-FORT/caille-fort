@@ -2,7 +2,6 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from "../../Components/header/header.component";
 import { PodcastCardComponent } from '../../Components/podcast-card/podcast-card.component';
-import {Button} from 'primeng/button';
 
 @Component({
   selector: 'app-podcast',
@@ -11,7 +10,6 @@ import {Button} from 'primeng/button';
     CommonModule,
     HeaderComponent,
     PodcastCardComponent,
-    Button
   ],
   templateUrl: './podcast.component.html',
   styleUrls: ['./podcast.component.scss']
@@ -21,32 +19,38 @@ export class PodcastComponent {
     {
       title: 'Nom de Podcast 1',
       date: '05/12/2024',
-      imageUrl: 'assets/img/podcast_exemple.png'
+      imageUrl: 'assets/img/podcast_exemple.png',
+      audioUrl: 'assets/audio/La FISA 2025 (6).mp3'
     },
     {
       title: 'Nom de Podcast 2',
       date: '05/12/2024',
-      imageUrl: 'assets/img/podcast_exemple.png'
+      imageUrl: 'assets/img/podcast_exemple.png',
+      audioUrl: 'assets/audio/La FISA 2025 (6).mp3'
     },
     {
       title: 'Nom de Podcast 3',
       date: '05/12/2024',
-      imageUrl: 'assets/img/podcast_exemple.png'
+      imageUrl: 'assets/img/podcast_exemple.png',
+      audioUrl: 'assets/audio/La FISA 2025 (6).mp3'
     },
     {
       title: 'Nom de Podcast 4',
       date: '05/12/2024',
-      imageUrl: 'assets/img/podcast_exemple.png'
+      imageUrl: 'assets/img/podcast_exemple.png',
+      audioUrl: 'assets/audio/La FISA 2025 (6).mp3'
     },
     {
       title: 'Nom de Podcast 5',
       date: '05/12/2024',
-      imageUrl: 'assets/img/podcast_exemple.png'
+      imageUrl: 'assets/img/podcast_exemple.png',
+      audioUrl: 'assets/audio/La FISA 2025 (6).mp3'
     },
     {
       title: 'Nom de Podcast 6',
       date: '05/12/2024',
-      imageUrl: 'assets/img/podcast_exemple.png'
+      imageUrl: 'assets/img/podcast_exemple.png',
+      audioUrl: 'assets/audio/La FISA 2025 (6).mp3'
     }
   ];
 
@@ -57,6 +61,74 @@ export class PodcastComponent {
   currentTime: number = 0;
   interval: any;
   scrollAmount = 200; // Ajustez cette valeur selon vos besoins
+
+  ngAfterViewInit() {
+    if (this.audioPlayer && this.audioPlayer.nativeElement) {
+      this.audioPlayer.nativeElement.addEventListener('timeupdate', this.updateTime.bind(this));
+      this.audioPlayer.nativeElement.addEventListener('ended', this.onEnded.bind(this));
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+    if (this.audioPlayer && this.audioPlayer.nativeElement) {
+      this.audioPlayer.nativeElement.pause();
+    }
+  }
+
+  playPodcast(podcast: any) {
+    this.currentPodcast = podcast;
+    if (this.audioPlayer && this.audioPlayer.nativeElement) {
+      this.audioPlayer.nativeElement.src = podcast.audioUrl;
+      this.audioPlayer.nativeElement.play();
+      this.isPlaying = true;
+      this.updateProgress();
+    }
+  }
+
+  togglePlay() {
+    if (this.audioPlayer && this.audioPlayer.nativeElement) {
+      if (this.isPlaying) {
+        this.audioPlayer.nativeElement.pause();
+      } else {
+        this.audioPlayer.nativeElement.play();
+      }
+      this.isPlaying = !this.isPlaying;
+      this.updateProgress();
+    }
+  }
+
+  updateTime() {
+    if (this.audioPlayer && this.audioPlayer.nativeElement) {
+      this.currentTime = this.audioPlayer.nativeElement.currentTime;
+    }
+  }
+
+  seek(event: any) {
+    if (this.audioPlayer && this.audioPlayer.nativeElement) {
+      this.audioPlayer.nativeElement.currentTime = event.target.value;
+    }
+  }
+
+  updateProgress() {
+    if (this.isPlaying) {
+      this.interval = setInterval(() => {
+        if (this.audioPlayer && this.audioPlayer.nativeElement) {
+          this.currentTime = this.audioPlayer.nativeElement.currentTime;
+        }
+      }, 1000);
+    } else {
+      clearInterval(this.interval);
+    }
+  }
+
+  onEnded() {
+    this.isPlaying = false;
+    clearInterval(this.interval);
+  }
+
   scrollLeft() {
     if (this.podcastCards && this.podcastCards.nativeElement) {
       this.podcastCards.nativeElement.scrollBy({ left: -this.scrollAmount, behavior: 'smooth' });

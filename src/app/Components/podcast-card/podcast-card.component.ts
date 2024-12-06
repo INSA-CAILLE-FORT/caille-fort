@@ -1,4 +1,4 @@
-import { Component,Input } from '@angular/core';
+import { Component,Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-podcast-card',
@@ -9,4 +9,9 @@ import { Component,Input } from '@angular/core';
 })
 export class PodcastCardComponent {
   @Input() podcast: any;
+  @Output() playPodcast = new EventEmitter<any>();
+
+  handleClick() {
+    this.playPodcast.emit(this.podcast);
+  }
 }
