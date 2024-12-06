@@ -7,7 +7,7 @@ import response from '../utils/response.json';
   providedIn: 'root',
 })
 export class GameService {
-  private apiUrl = 'http://api.insa-caille-fort.fr:8083/api/points'; // Remplacez par l'URL de votre API
+  private apiUrl = 'http://localhost:8083/api/points'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) {}
 
