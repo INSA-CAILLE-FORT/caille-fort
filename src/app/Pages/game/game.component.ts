@@ -36,6 +36,7 @@ export class GameComponent implements OnInit {
   }
 
   private fetchGameData(id: number): void {
+    console.log('here');
     this.gameService.getGame(id).subscribe({
       next: (data) => {
         this.game = parseGame(data); // Utilisation de parseGame ici

@@ -7,14 +7,13 @@ import response from '../utils/response.json';
   providedIn: 'root',
 })
 export class GameService {
-  private apiUrl = 'https://api.insa-caille-fort.fr:8083/api/points'; // Remplacez par l'URL de votre API
+  private apiUrl = 'https://api.insa-caille-fort.fr/api/points'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) {}
 
   getGame(id:number): Observable<any> {
 
     let data = this.http.get<any>(`${this.apiUrl}/${id}`, { responseType: 'json'});
-    console.log("Data : ",data);
     return data;
     // return of(response); // Retourne une observable contenant les données JSON
   }

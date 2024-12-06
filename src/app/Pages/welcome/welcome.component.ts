@@ -21,8 +21,4 @@ import { RouterLink} from '@angular/router';
 })
 export class WelcomeComponent {
 
-
-  onStartClicked() {
-    window.location.href = '/captcha';
-  }
 }
