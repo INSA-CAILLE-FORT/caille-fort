@@ -25,17 +25,18 @@ export class QuizzComponent {
   currentQuestionIndex = 0;
   quizzFinished = false;
   displayNextQuestion = true;
-
+  isCorrect = false; // Définit si la réponse est correcte
   isAnswered = false;
   feedbackMessage = '';
+  linkMessage = '';
 
-  constructor() {
+  ngOnInit() {
     if (this.isOcean) {
       this.totalQuestions = 6;
     }
   }
 
-  isCorrect = false; // Définit si la réponse est correcte
+
 
   get getCurrentQuestion(): QuestionModel {
     return this.questions[this.currentQuestionIndex];
@@ -62,48 +63,36 @@ export class QuizzComponent {
     }
   }
 
-
-  // answer(response: any): void {
-  //   if (this.question.type === 'text') {
-  //     this.isCorrect = response.trim().toLowerCase() === this.question.correctAnswer.toString().trim().toLowerCase();
-  //   } else {
-  //     this.isCorrect = response === this.question.correctAnswer;
-  //   }
-  //
-  //   // Met à jour l'état et le message
-  //   this.isAnswered = true;
-  //   this.feedbackMessage = this.isCorrect ? 'Bonne réponse !' : 'Mauvaise réponse !';
-  //
-  //   console.log('Réponse utilisateur :', response, ' | Correcte :', this.isCorrect);
-  // }
   answer(response: any): void {
-    let isCorrect = false;
     if (this.getQuestionType(this.questions[this.currentQuestionIndex]) === 'QCM' || this.getQuestionType(this.questions[this.currentQuestionIndex]) === 'true/false') {
-      isCorrect = response.toString().toLowerCase() === this.getCurrentQuestion.correctAnswer.toString().trim().toLowerCase();
+      this.isCorrect = response.toString().toLowerCase() === this.getCurrentQuestion.correctAnswer.toString().trim().toLowerCase();
     } else {
-      isCorrect = response === this.getCurrentQuestion.correctAnswer;
+      this.isCorrect = response === this.getCurrentQuestion.correctAnswer;
     }
 
     // Met à jour l'état et le message
     this.isAnswered = true;
-    this.feedbackMessage = isCorrect ? 'Bonne réponse !' : 'Mauvaise réponse !';
+    this.feedbackMessage = this.isCorrect ? 'Bonne réponse !' : 'Mauvaise réponse !';
+    this.linkMessage = this.isCorrect ? 'Question suivante' : 'Réessayer';
 
-    console.log('Réponse utilisateur :', response, ' | Correcte :', isCorrect);
+
+    console.log('Réponse utilisateur :', response, ' | Correcte :', this.isCorrect);
     // Si la réponse est correcte, passe à la question suivante
-    if (isCorrect && this.currentQuestionIndex+1 < this.totalQuestions) {
+    if (this.isCorrect && this.currentQuestionIndex+1 < this.totalQuestions) {
       this.currentQuestion++;
       this.currentQuestionIndex++;
       this.userAnswer = ''; // Réinitialise la réponse de l'utilisateur
-    } else if (isCorrect) {
+    } else if (this.isCorrect) {
       this.displayNextQuestion = false;
       setTimeout(() => {
         this.quizzFinished = true;
         this.quizFinishedEvent.emit(true);
-      }, 3000);
+      }, 1000);
     }
   }
 
   nextQuestion() {
+    this.isCorrect = false;
     this.isAnswered=false;
   }
 }

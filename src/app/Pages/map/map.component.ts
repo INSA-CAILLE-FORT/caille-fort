@@ -1,25 +1,30 @@
 /* src/app/Pages/map/map.component.ts */
-import { Component, HostListener } from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import { HeaderComponent } from '../../Components/header/header.component';
 import { QuizzComponent } from '../../Components/quizz/quizz.component';
 import { TileComponent } from '../../Components/tile/tile.component';
 import { NgForOf, NgStyle } from '@angular/common';
+import {DialogModule} from "primeng/dialog";
+import {Footer} from "primeng/api";
+import { CaptchaComponent } from "../captcha/captcha.component";
 
 @Component({
   selector: 'app-map',
   standalone: true,
-  imports: [
-    HeaderComponent,
-    QuizzComponent,
-    TileComponent,
-    NgStyle,
-    NgForOf,
-
-  ],
+    imports: [
+        HeaderComponent,
+        QuizzComponent,
+        TileComponent,
+        NgStyle,
+        NgForOf,
+        DialogModule,
+        Footer,
+    CaptchaComponent
+    ],
   templateUrl: './map.component.html',
   styleUrl: './map.component.scss'
 })
-export class MapComponent {
+export class MapComponent implements OnInit {
   points = [
     { x: 23, y: 48 },
     { x: 33, y: 75 },
@@ -34,10 +39,25 @@ export class MapComponent {
   mapHeight: number = 0;
   hoveredPoint: number | null = null;
 
+  displayModal: boolean = false;
+
+
   constructor() { }
 
   ngOnInit() {
+    /*const modalClosed = localStorage.getItem('modalClosed');
+    if (!modalClosed) {
+      this.displayModal = true;
+    } else {
+      this.displayModal = false;
+    }*/
+    this.displayModal = true;
     this.updateMapDimensions();
+  }
+
+  closeModal() {
+    this.displayModal = false;
+    localStorage.setItem('modalClosed', 'true');
   }
 
   @HostListener('window:resize')

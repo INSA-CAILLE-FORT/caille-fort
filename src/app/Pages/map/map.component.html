@@ -1,5 +1,8 @@
 <app-header/>
 <div class="map">
+  <div class="boat">
+    <img src="assets/img/boat.png" alt="boat" [ngStyle]="getPointStyle({x: 50, y: 68})">
+  </div>
   <div class="points">
     <div *ngFor="let point of points; let i = index"
          class="point"

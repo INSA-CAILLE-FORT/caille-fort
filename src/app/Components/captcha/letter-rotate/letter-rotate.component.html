@@ -1,0 +1,7 @@
+<div style="width: 85px;">
+    <img src="{{ this.urlToAsset }}" (click)="rotateImage()" [style.transform]="'rotate(' + this.rotationAngle + 'deg)'"
+        [style.transition]="this.isTransitionEnabled ? 'transform 0.5s ease' : 'none'" style="cursor: pointer;" />
+    <p>
+        Cliquer sur le "T" pour le remettre droit
+    </p>
+</div>
