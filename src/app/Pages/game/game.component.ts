@@ -94,7 +94,10 @@ export class GameComponent implements OnInit {
   }
 
   onHumanQuizFinished($event: boolean) {
-    console.log('HERRREEEE');
     this.oceanQuizHiden = false;
+  }
+
+  onBackButtonClicked() {
+    window.location.href = '/map';
   }
 }
