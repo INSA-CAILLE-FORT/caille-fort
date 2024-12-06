@@ -1,0 +1,33 @@
+/* src/app/Pages/map/map.component.scss */
+.map {
+  z-index: 0;
+  max-height: 100vh;
+  max-width: 100vw;
+  background: #6d9ea0 url('/assets/img/map.svg') no-repeat center;
+  background-size: contain;
+  position: relative;
+  overflow: hidden; /* Prevent overflow and scroll */
+  margin: auto; /* Center the map */
+}
+
+.points {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.point {
+  position: absolute;
+  transform: translate(-50%, -50%); /* Pour centrer les points */
+  width: 50px;
+  height: 50px;
+}
+
+.point > img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}

@@ -1,0 +1,90 @@
+.quizz-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 375px;
+}
+
+.quizz-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.quizz-question {
+  text-align: center;
+}
+
+.quizz-textbox {
+  width: 80%;
+  height: 80px;
+  border-radius: 12px;
+  border: none;
+  padding: 1rem;
+}
+
+.quizz-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.quizz-button {
+  width: 45%;
+  height: 80px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 12px;
+  color: var(--bg-secondary);
+  background-color: var(--blue);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.quizz-feedback {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 100px;
+  border-radius: 12px;
+  border: 3px solid var(--green);
+}
+
+.feedback-right {
+  border: 3px solid var(--green);
+  color: var(--green);
+}
+
+.feedback-wrong {
+  border: 3px solid var(--red);
+  color: var(--red);
+}
+
+.next-question {
+  cursor: pointer;
+}
+
+.true {
+  background-color: var(--green);
+}
+
+.false {
+  background-color: var(--red);
+}
+
+.text {
+  width: 88%;
+  height: 60px;
+}
+
+.tile-content-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}

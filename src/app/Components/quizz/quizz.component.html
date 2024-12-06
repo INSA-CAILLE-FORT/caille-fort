@@ -1,0 +1,64 @@
+<div class="quizz-container" *ngIf="!quizzFinished">
+  <div class="quizz-header">
+    <h3>Dévoile toute la page</h3>
+    <h3>{{currentQuestion}}/{{totalQuestions}}</h3>
+  </div>
+  <div class="quizz-question">
+    {{getCurrentQuestion.text}}
+  </div>
+
+  <!-- Afficher les boutons seulement si la réponse n'a pas encore été donnée -->
+  <div *ngIf="!isAnswered">
+    <div class="quizz-buttons" *ngIf="getQuestionType(getCurrentQuestion) === 'true/false'">
+      <button class="quizz-button true" (click)="answer(true)">VRAI</button>
+      <button class="quizz-button false" (click)="answer(false)">FAUX</button>
+    </div>
+
+    <div class="quizz-buttons" *ngIf="getQuestionType(getCurrentQuestion) === 'QCM'">
+      <button
+        *ngFor="let option of getOptions(getCurrentQuestion)"
+        class="quizz-button"
+        (click)="answer(option)"
+      >
+        {{ option }}
+      </button>
+    </div>
+
+    <div class="quizz-buttons" *ngIf="getQuestionType(getCurrentQuestion) === 'text'">
+      <input
+        type="text"
+        placeholder="Votre réponse"
+        class="quizz-textbox"
+      />
+      <button class="quizz-button text" (click)="answer(userAnswer)">Valider</button>
+    </div>
+  </div>
+
+  <!-- Afficher le message une fois la réponse donnée -->
+  <div
+    class="quizz-feedback"
+    *ngIf="isAnswered"
+    [ngClass]="{'feedback-right': isCorrect, 'feedback-wrong': !isCorrect}"
+  >
+    <p>{{ feedbackMessage }}</p>
+    <u class="next-question" *ngIf="displayNextQuestion" (click)="nextQuestion()">Question suivante</u>
+  </div>
+
+</div>
+<div class="tile-content-container">
+  <app-tile-content *ngIf="currentQuestion == 2 || currentQuestion == 3 || quizzFinished"
+                    title="Qu'est-ce que c'est ?"
+                    content="{{ questions[0].description }}"
+                    contentstyle="normal"
+  ></app-tile-content>
+  <app-tile-content *ngIf="currentQuestion == 3 || !displayNextQuestion"
+                    title="Quels sont les bénéfices"
+                    content="{{ questions[1].description }}"
+                    contentstyle="green"
+  ></app-tile-content>
+  <app-tile-content *ngIf="!displayNextQuestion"
+                    title="Les désavantages"
+                    content="{{  questions[2].description  }}"
+                    contentstyle="red"
+  ></app-tile-content>
+</div>

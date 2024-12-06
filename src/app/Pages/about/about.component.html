@@ -1,0 +1,33 @@
+
+<div class="about-us-container">
+  <div class="top">
+    <app-header/>
+    <div class="content-about">
+      <div class="title-about">
+        <h1>A PROPOS DE NOUS</h1>
+      </div>
+      <div (mouseenter)="displaySecondPhoto()" (mouseleave)="displayFirstPhoto()">
+        @if(isFirstPhotoDisplayed) {
+          <img class="photo-of-us" src="assets/img/nice_photo_of_us.jpg" alt="us"/>
+        }
+        @else {
+          <img class="photo-of-us" src="assets/img/nice_photo_of_us_in_mud.png" alt="us-tired"/>
+        }
+
+      </div>
+      <div class="description">
+        <p style="margin-bottom: 40px">
+          Nous sommes une équipe de 8 étudiants en 5ème année à l'INSA Hauts-de-France.
+          Nous avons réalisé ce projet dans le cadre de la nuit de l'informatique.
+          Nous sommes fier de vous présenter ce petit site !
+        </p>
+        <p>
+          Ce projet permet de sensibiliser à la protection de l'océan et aux points communs entre l'océan et le corps humain.
+          En plus du côté éducatif, nous avons voulu rendre le jeu ludique et amusant... Faites un tour sur notre page de jeu et amusez-vous !
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="bottom"></div>
+  <app-footer/>
+</div>
