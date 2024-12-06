@@ -31,6 +31,7 @@ export class MapComponent {
 
   mapWidth: number = 0;
   mapHeight: number = 0;
+  hoveredPoint: number | null = null;
 
   constructor() { }
 
@@ -70,5 +71,17 @@ export class MapComponent {
       left: `${(point.x / 100) * this.mapWidth}px`,
       top: `${((point.y / 100) * this.mapHeight)}px`
     };
+  }
+
+  onMouseEnter(index: number) {
+    this.hoveredPoint = index;
+  }
+
+  onMouseLeave() {
+    this.hoveredPoint = null;
+  }
+
+  getPointImage(index: number) {
+    return this.hoveredPoint === index ? 'assets/img/hover_map_button.png' : 'assets/img/green_map_button.png';
   }
 }

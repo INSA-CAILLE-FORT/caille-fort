@@ -1,13 +1,14 @@
 <app-header/>
 <div class="map">
   <div class="points">
-    <div *ngFor="let point of points"
+    <div *ngFor="let point of points; let i = index"
          class="point"
-         [ngStyle]="getPointStyle(point)">
-      <img src="assets/img/green_map_button.png" alt="point">
+         [ngStyle]="getPointStyle(point)"
+         (mouseenter)="onMouseEnter(i)"
+         (mouseleave)="onMouseLeave()">
+      <img [src]="getPointImage(i)" alt="point">
     </div>
   </div>
 </div>
-
 
 
