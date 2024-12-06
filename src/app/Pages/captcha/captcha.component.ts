@@ -3,11 +3,12 @@ import { LetterSnakeComponent } from "../../Components/captcha/letter-snake/lett
 import { LetterRotateComponent } from "../../Components/captcha/letter-rotate/letter-rotate.component";
 import { MoveKeyBoard } from '../../Models/move-keyBoard.type';
 import { LetterCompareComponent } from "../../Components/captcha/letter-compare/letter-compare.component";
+import { LetterUnveilComponent } from "../../Components/captcha/letter-unveil/letter-unveil.component";
 
 @Component({
   selector: 'app-captcha',
   standalone: true,
-  imports: [LetterSnakeComponent, LetterRotateComponent, LetterCompareComponent],
+  imports: [LetterSnakeComponent, LetterRotateComponent, LetterCompareComponent, LetterUnveilComponent],
   templateUrl: './captcha.component.html',
   styleUrl: './captcha.component.scss'
 })
