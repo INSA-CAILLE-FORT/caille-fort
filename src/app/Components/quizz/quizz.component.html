@@ -10,8 +10,8 @@
   <!-- Afficher les boutons seulement si la réponse n'a pas encore été donnée -->
   <div *ngIf="!isAnswered">
     <div class="quizz-buttons" *ngIf="getQuestionType(getCurrentQuestion) === 'true/false'">
-      <button class="quizz-button true" (click)="answer(true)">VRAI</button>
-      <button class="quizz-button false" (click)="answer(false)">FAUX</button>
+      <button class="quizz-button true" (click)="answer('vrai')">VRAI</button>
+      <button class="quizz-button false" (click)="answer('faux')">FAUX</button>
     </div>
 
     <div class="quizz-buttons" *ngIf="getQuestionType(getCurrentQuestion) === 'QCM'">
