@@ -32,7 +32,7 @@
         <img [src]="isPlaying ? 'assets/img/pause-icon.png' : 'assets/img/play-icon.png'" alt="Play Icon">
       </div>
       <div class="progress-bar-container">
-        <input type="range" [value]="currentTime" (input)="seek($event)" class="progress-bar">
+        <input type="range" [value]="currentTime" (input)="seek($event)" [max]="audioPlayer.duration" class="progress-bar">
       </div>
       <audio #audioPlayer src="assets/audio/PODCAST-AUDIO-Florian-Sévellec.mp3">
         <source [src]="currentPodcast?.audioUrl" type="audio/mpeg">

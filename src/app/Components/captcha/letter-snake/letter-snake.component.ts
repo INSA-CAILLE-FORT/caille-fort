@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MoveKeyBoard } from '../../../Models/move-keyBoard.type';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-letter-snake',
   standalone: true,
-  imports: [],
+  imports: [TooltipModule],
   templateUrl: './letter-snake.component.html',
   styleUrl: './letter-snake.component.scss'
 })

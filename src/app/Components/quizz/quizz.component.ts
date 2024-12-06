@@ -63,12 +63,13 @@ export class QuizzComponent {
     }
   }
 
-  answer(response: any): void {
+  answer(response: string): void {
     if (this.getQuestionType(this.questions[this.currentQuestionIndex]) === 'QCM' || this.getQuestionType(this.questions[this.currentQuestionIndex]) === 'true/false') {
-      this.isCorrect = response.toString().toLowerCase() === this.getCurrentQuestion.correctAnswer.toString().trim().toLowerCase();
+      this.isCorrect = response === this.getCurrentQuestion.correctAnswer.toString().trim().toLowerCase();
     } else {
       this.isCorrect = response === this.getCurrentQuestion.correctAnswer;
     }
+
 
     // Met à jour l'état et le message
     this.isAnswered = true;

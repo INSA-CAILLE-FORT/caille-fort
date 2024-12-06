@@ -1,9 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { TooltipModule } from 'primeng/tooltip';
 
 @Component({
   selector: 'app-letter-rotate',
   standalone: true,
-  imports: [],
+  imports: [TooltipModule],
   templateUrl: './letter-rotate.component.html',
   styleUrl: './letter-rotate.component.scss'
 })
