@@ -39,15 +39,27 @@ export class GameComponent implements OnInit {
     this.gameService.getGame(id).subscribe({
       next: (data) => {
         this.game = parseGame(data); // Utilisation de parseGame ici
-        let questionsTmp: QuestionModel[] = this.game.oceanPart.questions;
-        let learnQuestion = questionsTmp.find((q) => q.status === 'learn');
-        let shareQuestion = questionsTmp.find((q) => q.status === 'share');
-        let actQuestion = questionsTmp.find((q) => q.status === 'act');
-        const orderedQuestions: QuestionModel[] = [
-          ...questionsTmp.filter(q => q.status != 'learn' && q.status != 'share' && q.status != 'act'),
+        let oceanQuestionsTmp: QuestionModel[] = this.game.oceanPart.questions;
+        let consequenceOceanQuestion = oceanQuestionsTmp.find((q) => q.status === 'consequence');
+        let beneficeOceanQuestion = oceanQuestionsTmp.find((q) => q.status === 'benefice');
+        let descriptionOceanQuestion = oceanQuestionsTmp.find((q) => q.status === 'description');
+        let learnQuestion = oceanQuestionsTmp.find((q) => q.status === 'learn');
+        let shareQuestion = oceanQuestionsTmp.find((q) => q.status === 'share');
+        let actQuestion = oceanQuestionsTmp.find((q) => q.status === 'act');
+        let organQuestionsTmp: QuestionModel[] = this.game.oceanPart.questions;
+        let consequenceOrganQuestion = organQuestionsTmp.find((q) => q.status === 'consequence');
+        let beneficeOrganQuestion = organQuestionsTmp.find((q) => q.status === 'benefice');
+        let descriptionOrganQuestion = organQuestionsTmp.find((q) => q.status === 'description');
+        const orderedOceanQuestions: QuestionModel[] = [
+          descriptionOceanQuestion, beneficeOceanQuestion, consequenceOceanQuestion,
           learnQuestion, shareQuestion, actQuestion
         ].filter(q => q !== undefined) || [];
-        this.game = {...this.game, oceanPart: {...this.game.oceanPart, questions: orderedQuestions}};
+        const orderedOrganQuestions: QuestionModel[] = [
+          descriptionOrganQuestion, beneficeOrganQuestion, consequenceOrganQuestion,
+          learnQuestion, shareQuestion, actQuestion
+        ].filter(q => q !== undefined) || [];
+        this.game = {...this.game, oceanPart: {...this.game.oceanPart, questions: orderedOceanQuestions},
+          organ: {...this.game.organ, questions: orderedOrganQuestions}};
         console.log('Données chargées avec succès :', data);
         this.transformToTiles(); // Transformation en tiles
         console.log('Données transformée avec succès :', this.game);
