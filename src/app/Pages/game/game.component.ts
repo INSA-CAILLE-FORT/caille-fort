@@ -46,7 +46,7 @@ export class GameComponent implements OnInit {
         let learnQuestion = oceanQuestionsTmp.find((q) => q.status === 'learn');
         let shareQuestion = oceanQuestionsTmp.find((q) => q.status === 'share');
         let actQuestion = oceanQuestionsTmp.find((q) => q.status === 'act');
-        let organQuestionsTmp: QuestionModel[] = this.game.oceanPart.questions;
+        let organQuestionsTmp: QuestionModel[] = this.game.organ.questions;
         let consequenceOrganQuestion = organQuestionsTmp.find((q) => q.status === 'consequence');
         let beneficeOrganQuestion = organQuestionsTmp.find((q) => q.status === 'benefice');
         let descriptionOrganQuestion = organQuestionsTmp.find((q) => q.status === 'description');
@@ -55,8 +55,7 @@ export class GameComponent implements OnInit {
           learnQuestion, shareQuestion, actQuestion
         ].filter(q => q !== undefined) || [];
         const orderedOrganQuestions: QuestionModel[] = [
-          descriptionOrganQuestion, beneficeOrganQuestion, consequenceOrganQuestion,
-          learnQuestion, shareQuestion, actQuestion
+          descriptionOrganQuestion, beneficeOrganQuestion, consequenceOrganQuestion
         ].filter(q => q !== undefined) || [];
         this.game = {...this.game, oceanPart: {...this.game.oceanPart, questions: orderedOceanQuestions},
           organ: {...this.game.organ, questions: orderedOrganQuestions}};
